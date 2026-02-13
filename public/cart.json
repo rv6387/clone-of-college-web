@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "name":" Mechanical Engineering",
+        "price": 200,
+        "image": "R1.jpeg"
+    },
+    {
+        "id": 2,
+        "name":" Refrigeration Tables With Charts",
+        "price": 250,
+        "image": "R2.jpeg"
+    },
+    {
+        "id": 3,
+        "name":" Basic Electrical Engineering DC Kulshreshtha",
+        "price": 290,
+        "image": "R3.jpeg"
+    },
+    {
+        "id": 4,
+        "name":" Shortcuts,Tips & Tricks in Physics",
+        "price": 200,
+        "image": "R4.jpeg"
+    },
+    {
+        "id": 5,
+        "name":" Torget VITEEE 2024 17 Previous Year",
+        "price": 300,
+        "image": "R5.jpeg"
+    },
+    {
+        "id": 6,
+        "name":" A Handbook on Electrical Engineering",
+        "price": 200,
+        "image": "R6.jpeg"
+    },
+    {
+        "id": 7,
+        "name":" Hydraulic Machines",
+        "price": 200,
+        "image": "R7.jpeg"
+    },
+    {
+        "id": 8,
+        "name":"Study Guide CCC ",
+        "price": 200,
+        "image": "R8.jpeg"
+    }
+
+]

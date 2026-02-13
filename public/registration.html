@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+  <h1>Student Registration</h1>
+
+  <form id="regForm">
+
+    <label for="branch">Select Your Branch</label>
+    <select id="branch" required>
+      <option value="IT">Information Technology</option>
+      <option value="Civil">Civil Engineering</option>
+      <option value="EE">Electrical Engineering</option>
+      <option value="CSE">Computer Science and Engineering</option>
+    </select>
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" required>
+
+    <label for="em">Email Address</label>
+    <input type="email" id="em" required>
+
+    <label for="ph">Phone Number</label>
+    <input type="text" id="ph" required>
+
+    <label>Gender</label>
+    <div class="inline-group">
+      <label><input type="radio" name="gender" value="Male" required> Male</label>
+      <label><input type="radio" name="gender" value="Female"> Female</label>
+      <label><input type="radio" name="gender" value="Other"> Other</label>
+    </div>
+
+    <label for="bd">Date of Birth</label>
+    <input type="date" id="bd" required>
+
+    <label>Languages Known</label>
+    <div class="inline-group">
+      <label><input type="checkbox" name="languages" value="English"> English</label>
+      <label><input type="checkbox" name="languages" value="Hindi"> Hindi</label>
+      <label><input type="checkbox" name="languages" value="Tamil"> Tamil</label>
+    </div>
+
+    <label for="ad">Address</label>
+    <textarea id="ad" required></textarea>
+
+    <label for="tenth">10th Percentage</label>
+    <input type="number" id="tenth" step="0.01" required>
+
+    <label for="twelfth">12th Percentage</label>
+    <input type="number" id="twelfth" step="0.01" required>
+
+    <label for="pwd">Create Password</label>
+    <input type="password" id="pwd" required>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    document.getElementById("regForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const languages = [];
+      document.querySelectorAll('input[name="languages"]:checked')
+        .forEach(cb => languages.push(cb.value));
+
+      const data = {
+        branch: document.getElementById("branch").value,
+        name: document.getElementById("name").value,
+        email: document.getElementById("em").value,
+        phone: document.getElementById("ph").value,
+        gender: document.querySelector('input[name="gender"]:checked').value,
+        dob: document.getElementById("bd").value,
+        languages: languages,
+        address: document.getElementById("ad").value,
+        tenth: document.getElementById("tenth").value,
+        twelfth: document.getElementById("twelfth").value,
+        password: document.getElementById("pwd").value
+      };
+
+      try {
+        const res = await fetch("http://localhost:3000/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+        alert(result.message);
+
+      } catch (err) {
+        alert("Error: " + err.message);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "college-app",
+  "version": "1.0.0",
+  "description": "College Registration App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "mongodb": "^7.1.0"
+  }
+}
